@@ -47,13 +47,13 @@ def AdjustImage(file):
 #   h is the difference to be applied to the height     
     if ImageSize[0] > ImageSize[1]:
         w = Difference/2
-        h = 0   
+        h = 0
     elif Difference == 0:
         w = 0
-        h = 0  
+        h = 0
     elif ImageSize[0] < ImageSize[1]:
         h = Difference/2
-        w = 0    
+        w = 0
    
     NewArea = (w, h, ImageSize[0]-w, ImageSize[1]-h)
     CroppedImage = image_obj.crop(NewArea)
@@ -184,8 +184,8 @@ if NumberOfItems == 0:
 logging.debug("Calling 'AdjustImage' Function\n")
 
 #Progress Bar
+#for image in tqdm(iterable=ImageList, unit="Photo"):
 with concurrent.futures.ThreadPoolExecutor() as executor:
-    #for image in tqdm(iterable=ImageList, unit="Photo"):
     executor.map(AdjustImage, ImageList)
 
 
