@@ -109,6 +109,7 @@ logging.debug("\n-------------------------------\n"
 try:
     ClickedOnFolder = " ".join(ClickedOnFolderList)
     SubFolderLocation = os.path.join(ClickedOnFolder,"Report Images")
+    logging.info(f"Folder: {ClickedOnFolder}\n")
     
     #DEBUG level logging
     logging.debug("\n-------------------------------\n"
@@ -174,7 +175,7 @@ if NumberOfItems == 0:
     root = tkinter.Tk()
     root.withdraw()
     messagebox.showinfo("Warning","No images found in folder")
-    logging.critical("No images found, exiting (Sys.Exit(4))")
+    logging.critical("No images found, exiting (Sys.Exit(4))\n\n")
     sys.exit(4)
 
 logging.debug("Calling 'AdjustImage' Function\n")
@@ -188,7 +189,8 @@ end = time.time()
 logging.info(f"Completed, I adjusted {NumberOfItems} Images.  It took"
              f" {round(end-start,2)} seconds.\n"
              f"{round(round(end-start, 2)/NumberOfItems, 2)}"
-             " seconds per photo.")
+             " seconds per photo."
+             f"Image Folder: {ClickedOnFolder}")
 
 print(f"Done! It took {round(end-start,2)} seconds to process "
       f"{NumberOfItems} photographs.\nRate: "
