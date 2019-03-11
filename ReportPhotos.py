@@ -183,10 +183,6 @@ if NumberOfItems == 0:
 
 logging.debug("Calling 'AdjustImage' Function\n")
 
-"""
-Progress Bar
-for image in tqdm(iterable=ImageList, unit="Photo"):
-"""
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(AdjustImage, ImageList)
 
