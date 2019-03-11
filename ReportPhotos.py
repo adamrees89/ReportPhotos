@@ -19,7 +19,6 @@ import time
 import glob
 import tkinter
 from tkinter import messagebox
-from tqdm import tqdm
 
 start = time.time()
 
@@ -180,6 +179,7 @@ if NumberOfItems == 0:
 
 logging.debug("Calling 'AdjustImage' Function\n")
 
+print(f"Processing {NumberOfItems} Photos using all available cores/threads")
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(AdjustImage, ImageList)
 
@@ -191,7 +191,9 @@ logging.info(f"Completed, I adjusted {NumberOfItems} Images.  It took"
              " seconds per photo.")
 
 print(f"Done! It took {round(end-start,2)} seconds to process "
-      f"{NumberOfItems} photographs. Quitting...")
+      f"{NumberOfItems} photographs.\nRate: "
+      f"{round(round(end-start, 2)/NumberOfItems, 3)} seconds per photo.\n"
+      "Quitting...")
 
 time.sleep(3)
     
