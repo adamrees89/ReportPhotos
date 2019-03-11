@@ -19,6 +19,7 @@ import logging
 import time
 import glob
 import tkinter
+import concurrent.futures
 from tkinter import messagebox
 from tqdm import tqdm
 
@@ -182,8 +183,10 @@ if NumberOfItems == 0:
 logging.debug("Calling 'AdjustImage' Function\n")
 
 #Progress Bar
-for image in tqdm(iterable=ImageList,unit="Photo"):
-    AdjustImage(image)
+with concurrent.futures.ThreadPoolExecutor() as executor:
+#    for image in tqdm(iterable=ImageList,unit="Photo"):
+    executor.map(AdjustImage,ImageList)
+        
 
 end = time.time()    
 logging.info(f"Completed, I adjusted {NumberOfItems} Images.  It took"
