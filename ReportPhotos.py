@@ -10,7 +10,7 @@ This script has been created to help with report writing,
 It will take a directory full of photos from a phone, crop the photo to an
 aspect ratio of 1:1, and re-size the photo to 5cm x 5cm (approx. 190x190 pixel)
 """
-
+import concurrent.futures
 from PIL import Image
 import sys
 import os
@@ -43,15 +43,15 @@ def AdjustImage(file):
 
 #   w is the difference to be applied to the width
 #   h is the difference to be applied to the height     
-    if Difference == 0:
-        w = 0
-        h = 0  
     if ImageSize[0] > ImageSize[1]:
         w = Difference/2
-        h = 0   
-    if ImageSize[0] < ImageSize[1]:
+        h = 0
+    elif Difference == 0:
+        w = 0
+        h = 0
+    elif ImageSize[0] < ImageSize[1]:
         h = Difference/2
-        w = 0    
+        w = 0
    
     NewArea = (w, h, ImageSize[0]-w, ImageSize[1]-h)
     CroppedImage = image_obj.crop(NewArea)
@@ -181,9 +181,9 @@ if NumberOfItems == 0:
 
 logging.debug("Calling 'AdjustImage' Function\n")
 
-#Progress Bar
-for image in tqdm(iterable=ImageList,unit="Photo"):
-    AdjustImage(image)
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    executor.map(AdjustImage, ImageList)
+
 
 end = time.time()    
 logging.info(f"Completed, I adjusted {NumberOfItems} Images.  It took"
