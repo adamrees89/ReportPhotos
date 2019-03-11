@@ -11,6 +11,7 @@ It will take a directory full of photos from a phone, crop the photo to an
 aspect ratio of 1:1, and re-size the photo to 5cm x 5cm (approx. 190x190 pixel)
 """
 import concurrent.futures
+from PIL import Image
 import sys
 import os
 import winshell
@@ -18,7 +19,6 @@ import logging
 import time
 import glob
 import tkinter
-from PIL import Image
 from tkinter import messagebox
 from tqdm import tqdm
 
