@@ -12,6 +12,7 @@ aspect ratio of 1:1, and re-size the photo to 5cm x 5cm (approx. 190x190 pixel)
 """
 
 from PIL import Image
+import concurrent.futures
 import sys
 import os
 import winshell
@@ -19,7 +20,7 @@ import logging
 import time
 import glob
 import tkinter
-import concurrent.futures
+
 from tkinter import messagebox
 from tqdm import tqdm
 
@@ -44,13 +45,13 @@ def AdjustImage(file):
 
 #   w is the difference to be applied to the width
 #   h is the difference to be applied to the height     
-    if Difference == 0:
-        w = 0
-        h = 0  
     if ImageSize[0] > ImageSize[1]:
         w = Difference/2
         h = 0   
-    if ImageSize[0] < ImageSize[1]:
+    elif Difference == 0:
+        w = 0
+        h = 0  
+    elif ImageSize[0] < ImageSize[1]:
         h = Difference/2
         w = 0    
    
@@ -184,9 +185,9 @@ logging.debug("Calling 'AdjustImage' Function\n")
 
 #Progress Bar
 with concurrent.futures.ThreadPoolExecutor() as executor:
-#    for image in tqdm(iterable=ImageList,unit="Photo"):
-    executor.map(AdjustImage,ImageList)
-        
+    #for image in tqdm(iterable=ImageList, unit="Photo"):
+    executor.map(AdjustImage, ImageList)
+
 
 end = time.time()    
 logging.info(f"Completed, I adjusted {NumberOfItems} Images.  It took"
