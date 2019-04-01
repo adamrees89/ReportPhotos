@@ -1,2 +1,1 @@
 pillow==5.4.1
-tkinter==3.7.2
