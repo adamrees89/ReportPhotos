@@ -2,6 +2,8 @@
 ![GitHub](https://img.shields.io/github/license/adamrees89/ReportPhotos.svg)
 ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/adamrees89/ReportPhotos.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/adamrees89/ReportPhotos.svg)
+[![Build Status](https://travis-ci.org/adamrees89/ReportPhotos.svg?branch=master)](https://travis-ci.org/adamrees89/ReportPhotos)
+[![Coverage Status](https://coveralls.io/repos/github/adamrees89/ReportPhotos/badge.svg?branch=master)](https://coveralls.io/github/adamrees89/ReportPhotos?branch=master)
 
 [![Known Vulnerabilities](https://snyk.io/test/github/adamrees89/ReportPhotos/badge.svg)](https://snyk.io/test/github/adamrees89/ReportPhotos)
 ![GitHub issues](https://img.shields.io/github/issues/adamrees89/ReportPhotos.svg)
