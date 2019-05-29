@@ -10,6 +10,7 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/adamrees89/ReportPhotos.svg)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/adamrees89/ReportPhotos.svg)
 
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WWZP5GMRRVPTQ&source=url)
 
 This is a Python script to resize and crop photos to a sensible size for inclusion in reports (Designed for Microsoft Word Reports).
 
