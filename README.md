@@ -12,7 +12,7 @@
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WWZP5GMRRVPTQ&source=url)
 
-This is a Python script to resize and crop photos to a sensible size for inclusion in reports (Designed for Microsoft Word Reports).
+This is a Python script to resize and crop photos to a sensible size (5cm square) for inclusion in reports (Designed for Microsoft Word Reports in A4).
 
 ## Future Development
 
@@ -30,5 +30,5 @@ More information and quick tutorial on concurrent.futures:  https://gist.github.
 
 |  |Number of Photos | Elapsed Time | Photos/second | Seconds/photo |
 |---|---|---|---|---|
-No Multithreading | 129 | 25.93 seconds| 5.00 | 0.20 |
+No Multithreading | 129 | 25.93 seconds| 4.97 | 0.20 |
 Mulithreading with concurrent.futures | 129 | 6.45 seconds| 20.00 | 0.05|
